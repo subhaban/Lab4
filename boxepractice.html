@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make boxes using DOM </title>
+    <style>
+        .container {
+            border: 5px solid;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: repeat(autofill, minmax(100px, 1fr));
+            grid-gap: 1rem;
+
+        }
+
+        .ball {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #333;
+            color: #fdfdfd;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <!---- <div class="ball">Ball</div>-->
+    </section>
+
+    <script>
+        // create shortcut ref for the section element
+        const container = document.querySelector('.container');
+
+        // make an element to add the container
+
+        const ball = document.createElement('DIV');
+
+        ball.classList.add('ball');
+
+        const txt = document.createTextNode('Ball');
+        ball.appendChild(txt);
+
+        // add teh newly create element to the page inside contyainer)
+        container.appendChild(ball);
+        console.log(ball.ClassList);
+
+        const btn = document.createElement("BUTTON");
+        const btnTxt = document.createTextNode("Make Ball");
+        btn.appendChild(btnTxt);
+        document.body.appendChild(btn);
+
+        // create button inteactive
+        btn.addEventListener('click', renderBoxes);
+
+        function renderBoxes(e) {
+            const temHolder = document.createDocumentFragment();
+            for (let i = 0; i < 10; i++) {
+                // consol.log(i);
+
+                const ball2 = document.createElement('DIV');
+
+                ball2.classList.add('ball');
+
+                const txt = document.createTextNode('Ball ' + i);
+                ball2.appendChild(txt);
+
+                // add teh newly create element to the page inside contyainer)
+                container.appendChild(ball2);
+                // console.log(ball.ClassList);
+
+                //add the newly create element to the page
+
+tempHolder.appendChild(ball2);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
